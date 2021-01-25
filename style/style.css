@@ -76,7 +76,7 @@ body {
 }
 
 .footer {
-  margin-top: 100px;
+  margin-top: 75px;
   display: flex;
 }
 
@@ -89,10 +89,21 @@ body {
 .social-container {
   display: flex;
   margin-inline-start: auto;
-  margin-right: 50px;
 }
 
 .social-container img {
   width: 50px;
   margin-right: 15px;
+}
+
+@media screen and (max-width: 550px) {
+  .logo {
+    width: 400px;
+  }
+  .social-container {
+    margin-right: 0;
+  }
+  .footer {
+    margin-top: 100px;
+  }
 }

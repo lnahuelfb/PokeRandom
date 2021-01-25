@@ -8,7 +8,10 @@ const pokemonGenerator = async (url_api) => {
       .then((response) => response.json())
       .catch((error) => console.error(error));
 
-    const randomNumber = Math.floor(Math.random() * (1118 - 1)) + 1;
+    // A pesar de haber 1118 Pokemones segun la API, aparentemente solo
+    // tienen registrado hasta el 898, por esa razon ese es el limite
+
+    const randomNumber = Math.floor(Math.random() * (898 - 1)) + 1;
 
     const pokemon = await fetch(`${url_api}${randomNumber}`)
       .then((response) => response.json())
@@ -36,6 +39,8 @@ const renderInHTML = (data, pokemon) => {
   numberOfPokemons.innerHTML = `<strong>Pokemon count: ${data.count}</strong>`;
   nameOfPokemons.innerHTML = `<strong>Name: ${pokemon.name}</strong>`;
   typeOfPokemons.innerHTML = `<strong>Type: ${pokemon.types[0].type.name}</strong>`;
+
+  // En caso de que el Pokemon tenga mas de un sub-tipo, aqui lo imprimiré en pantalla
 
   if (pokemon.types.length > 1)
     secondaryType.innerHTML = `<strong>Secondary type: ${pokemon.types[1].type.name}</strong>`;
