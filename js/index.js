@@ -8,8 +8,8 @@ const pokemonGenerator = async (url_api) => {
       .then((response) => response.json())
       .catch((error) => console.error(error));
 
-    // A pesar de haber 1118 Pokemones segun la API, aparentemente solo
-    // tienen registrado hasta el 898, por esa razon ese es el limite
+    // A pesar de haber 1118 Pokemones segun la documentacion de la API, aparentemente solo
+    // tienen registrado hasta el 898. Para eivtar errores decidí poner ese limite.
 
     const randomNumber = Math.floor(Math.random() * (898 - 1)) + 1;
 
